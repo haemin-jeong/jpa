@@ -1,0 +1,23 @@
+# 테스트용 설정 파일
+# 스프링부트는 datasource 설정이 없으면 디폴트는 메모리 DB 사용
+# - driver-class -> 현재 등록된 라이브러리를 보고 설정해준다.
+# - ddl-auto -> create-drop 설정으로 동작
+spring:
+#  datasource:
+#    url: jdbc:h2:tcp://localhost/~/jpashop
+#    username: sa
+#    password:
+#    driver-class-name: org.h2.Driver
+
+#  jpa:
+#    hibernate:
+#      ddl-auto: create
+#    properties:
+#      hibernate:
+#        format_sql: true
+#        show_sql: true #System.out에 하이버네이트 SQL을 출력해준다.
+
+logging.level:
+    org.hibernate.SQL: debug #logeer를 통해 하이버네이트 실행 SQL을 남긴다.
+#    org.hibernate.type: trace
+
