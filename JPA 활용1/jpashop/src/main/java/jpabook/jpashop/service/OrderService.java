@@ -9,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /*
 주문 서비스의 주문과 주문 취소 메서드를 보면 비즈니스 로직이 대부분 엔티티에 있는 것을 알 수 있다.
 - 도메인 모델 패턴 : 엔티티가 비즈니스 로직을 가지고 객체 지향 특성을 적극 활용하는 것
@@ -60,5 +62,12 @@ public class OrderService {
 
         //주문 취소
         order.cancel();
+    }
+
+    /**
+     * 주문 검색
+     */
+    public List<Order> findOrders(OrderSearch orderSearch) {
+        return orderRepository.findAllByString(orderSearch);
     }
 }
