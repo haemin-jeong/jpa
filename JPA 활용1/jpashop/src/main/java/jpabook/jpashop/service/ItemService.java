@@ -27,4 +27,14 @@ public class ItemService {
     public List<Item> findItems() {
         return itemRepository.findAll();
     }
+
+    /**
+     * 변경 감지 사용하여 영속성 컨텍스트가 자동으로 업데이트
+     */
+    @Transactional
+    public void updateItem(Long id, String name, int price) {
+        Item findItem = itemRepository.findOne(id);
+        findItem.setName(name);
+        findItem.setPrice(price);
+    }
 }
